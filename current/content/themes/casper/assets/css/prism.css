@@ -35,7 +35,7 @@ pre[class*="language-"] {
 	hyphens: none;
 
 	border-radius: 0;
-
+	border: none;
 }
 
 /* Code blocks */
@@ -43,11 +43,12 @@ pre[class*="language-"] {
 	padding: 1em;
 	margin: 0;
 	overflow: auto;
+	border-bottom: 3px solid #3498db;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #2d2d2d;
+	background: #1e272e;
 }
 
 /* Inline code */

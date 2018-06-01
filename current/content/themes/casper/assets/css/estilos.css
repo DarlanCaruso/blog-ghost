@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Source+Serif+Pro');
+
+/* Pagina Incial */
+
+/* Titulo */
+
+.site-title {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 4rem;
+}
+
+/* Subscribe  */
+
+.subscribe-button {
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  border-radius: 0;
+  color: #bdc3c7;
+}
+/* Cards  */
+
+.post-card {
+  border-radius: 0;
+  border-bottom: 4px solid white;
+	transition: all 0.3s ease-in-out;
+}
+
+.post-card:hover {
+	border-bottom: 4px solid #3498db;
+  transition: all 0.3s ease-in-out;
+  transform: translate3D(0, -1px, 0) scale(1);
+}
+
+.post-card-content {
+	min-width: 100%;
+}
+
+.post-card-title {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 2.4rem;
+}
+
+.post-card-excerpt {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5rem;
+}
+
+/* Posts */
+
+.floating-header,
+.floating-header-logo a,
+.floating-header-title {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 100;
+	color: #3498db;
+}
+
+.floating-header-logo a {
+	color: #7f8c8d;
+}
+
+.post-full-title {
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 20px;
+}
+
+.post-full-content {
+  font-family: 'Source Serif Pro', serif;
+}
+
+/* Posts Menu  */
+
+li[role="menuitem"] a {
+	color: #bdc3c7;
+	text-transform: capitalize;
+	font-size: 1.1em;
+}
+
+li[role="menuitem"] a:hover {
+	color: #0fbcf9;
+}
+
+.site-header {
+	background-color: #1e272e;
+	border-bottom: 1px solid #0fbcf9;
+}
+
+.site-nav-logo {
+	color: #ecf0f1;
+}
+
+.site-header:after,
+.site-header:before {
+	background: transparent;
+}
+
+.site-nav-logo {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 100;
+}
+
+/* Posts Subscribe */
+
+.subscribe-form-title {
+	font-family: 'Montserrat', sans-serif;
+}
+
+button[type=submit] {
+	margin: 5px;
+	border-radius: 3px;
+	background: none;
+	color: #3498db;
+	font-weight: 100;
+	border: 1px solid #3498db;
+	box-shadow: none;
+	transition: all 0.3s ease-in-out;
+}
+
+button[type=submit]:hover {
+	background: #3498db;
+	color: white;
+	border: 1px solid #3498db;
+	transition: all 0.3s ease-in-out;
+}
+
+.subscribe-form {
+	font-weight: 100;
+	background: #ecf0f1;
+}
+
+.subscribe-email {
+	padding: 8px;
+}
+
+/* Post Author */
+
+.author-card-name {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.author-card-content p {
+	font-family: 'Roboto', sans-serif;
+}
