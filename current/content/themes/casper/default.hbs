@@ -19,6 +19,9 @@
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
 
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body class="{{body_class}}">
 
@@ -42,7 +45,7 @@
 
     <div id="morphsearch" class="morphsearch">
         <form class="morphsearch-form">
-            <input class="morphsearch-input typeahead" type="search" placeholder="Buscar..." />
+            <input class="morphsearch-input typeahead" type="search" placeholder="Pesquisar..." />
             <button class="morphsearch-submit" type="submit">Pesquisar</button>
         </form>
         <div class="morphsearch-content">
@@ -78,7 +81,7 @@
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     {{!-- Prism.js --}}
     <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
-    <script src="{{asset "js/cassie.js"}}"></script>
+    <script src="{{asset "js/classie.js"}}"></script>
     <script>
         (function () {
             var morphSearch = document.getElementById('morphsearch'),
@@ -121,8 +124,6 @@
                     toggleSearch(ev);
                 }
             });
-            /***** for demo purposes only: don't allow to submit the form *****/
-            morphSearch.querySelector('button[type="submit"]').addEventListener('click', function (ev) { ev.preventDefault(); });
         })();
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
@@ -144,6 +145,13 @@
                 });
 
                 //Build the typeahead
+                function el(data) {
+                    var el = `<a href="{{@blog.url}}/${data.slug}" class="result" alt="${data.title}">
+                            <h3>${data.title}</h3>
+                        </a>`; 
+                    return el;
+                };
+
                 $('#morphsearch .typeahead').typeahead(null, {
                     name: 'search',
                     //source is the bloodhound variable
@@ -156,14 +164,11 @@
                         ].join('\n'),
                         suggestion: function (data) {
                             return `<div class="search-result">
-                                <a href="{{@blog.url}}/${data.slug}" alt="${data.title}">
-                                    <h3>${data.title}</h3>
-                                </a>
-                            </div>`;
+                                ${el(data)};
+                            </div>`;   
                         }
                     }
                 });
-
                 //Now show the search bar since getting data was successful
                 $('#morphsearch').show();
             }).fail(function () {
