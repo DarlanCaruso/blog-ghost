@@ -9,7 +9,7 @@ into the {body} of the default.hbs template --}}
     </div>
 </header> --}}
 
-{{> "site-nav"}}
+{{!-- {{> "site-nav"}} --}}
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
@@ -41,7 +41,7 @@ into the {body} of the default.hbs template --}}
             {{!-- Email subscribe form at the bottom of the page --}}
             {{#if @labs.subscribers}}
             <section class="subscribe-form">
-                <h3 class="subscribe-form-title">{{t "Subscribe to {blogtitle}" blogtitle=@blog.title}}</h3>
+                <h3 class="subscribe-form-title">Inscreva-se.</h3>
                 <p>{{t "Get the latest posts delivered right to your inbox"}}</p>
                 {{subscribe_form placeholder="youremail@example.com"}}
             </section>
@@ -171,6 +171,7 @@ $(document).ready(function () {
     }
 
     function update() {
+        var searchBar = document.querySelector('#morphsearch');
         var trigger = title.getBoundingClientRect().top + window.scrollY;
         var triggerOffset = title.offsetHeight + 35;
         var progressMax = lastDocumentHeight - lastWindowHeight;

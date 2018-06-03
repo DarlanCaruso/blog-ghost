@@ -16,7 +16,7 @@ It's a good idea to keep this template as minimal as possible in terms of both f
 <body class="error-template">
     <div class="site-wrapper">
 
-        <header class="site-header outer {{#if feature_image}}" style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
+        {{!-- <header class="site-header outer {{#if feature_image}}" style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
             <div class="inner">
                 <nav class="site-nav-center">
                     {{#if @blog.logo}}
@@ -26,14 +26,14 @@ It's a good idea to keep this template as minimal as possible in terms of both f
                     {{/if}}
                 </nav>
             </div>
-        </header>
+        </header> --}}
 
         <main id="site-main" class="site-main outer">
             <div class="inner">
 
                 <section class="error-message">
                     <h1 class="error-code">{{code}}</h1>
-                    <p class="error-description">{{message}}</p>
+                    <p class="error-description">Página não encontrada</p>
                     <a class="error-link" href="{{@blog.url}}">{{t "Go to the front page"}} →</a>
                 </section>
             </div>

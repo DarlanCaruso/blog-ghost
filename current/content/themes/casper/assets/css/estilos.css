@@ -2,6 +2,15 @@
 
 /* Pagina Incial */
 
+body, html {
+	overflow-x: hidden;
+}
+
+body {
+	max-height: 100%;
+	margin-top: 60px;
+}
+
 /* Cabeçalho  */
 
 .site-header-new {
@@ -86,6 +95,7 @@
 
 /* Menu  */
 
+/* 
 .site-nav-logo, .site-nav-center {
 	font-family: 'Rubik', sans-serif;
 	font-size: 1.6rem !important;
@@ -121,13 +131,252 @@
 	font-family: 'Roboto', sans-serif;
 	text-transform: capitalize;
 	color: #1e272e;
+} */
+
+/* Search */
+
+.morphsearch {
+	width: 100%;
+	min-height: 60px;
+	background: #f1f1f1;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	right: 0;
+	visibility: visible;
+	-webkit-transform-origin: 100% 0;
+	transform-origin: 100% 0;
+	-webkit-transition-property: min-height, width, top, right;
+	transition-property: min-height, width, top, right;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 }
 
-/* @media (min-width: 900px) {
-	.site-nav-right {
-		display: none;
+.morphsearch.open {
+	width: 100%;
+	min-height: 100%;
+	top: 0px;
+	right: 0px;
+}
+
+.morphsearch-form {
+	width: 100%;
+	height: 40px;
+	margin: 10px auto;
+	position: relative;
+	-webkit-transition-property: width, height, -webkit-transform;
+	transition-property: width, height, transform;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch.open .morphsearch-form {
+	width: 80%;
+	height: 160px;
+	-webkit-transform: translate3d(0,3em,0);
+	transform: translate3d(0,3em,0);
+}
+
+.morphsearch-input {
+	width: 100%;
+	height: 100%;
+	padding: 0 10% 0 10px;
+	font-weight: 700;
+	border: none;
+	background: transparent;
+	font-size: 0.8em;
+	color: #ec5a62;
+	-webkit-transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
+	transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch-input::-ms-clear { /* remove cross in IE */
+    display: none;
+}
+
+.morphsearch.hideInput .morphsearch-input {
+	color: transparent;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.morphsearch.open .morphsearch-input {
+	font-size: 5em;
+}
+
+/* placeholder */
+.morphsearch-input::-webkit-input-placeholder {
+	color: #c2c2c2;
+}
+
+.morphsearch-input:-moz-placeholder {
+	color: #c2c2c2;
+}
+
+.morphsearch-input::-moz-placeholder {
+	color: #c2c2c2;
+}
+
+.morphsearch-input:-ms-input-placeholder {
+	color: #c2c2c2;
+}
+
+/* hide placeholder when active in Chrome */
+.gn-search:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+
+input[type="search"] { /* reset normalize */
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;	
+}
+
+.morphsearch-input:focus,
+.morphsearch-submit:focus {
+	outline: none;
+}
+
+.morphsearch-submit {
+	display: none;
+}
+
+.morphsearch.open .morphsearch-submit {
+	pointer-events: auto;
+	opacity: 1;
+	-webkit-transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
+	transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+
+.morphsearch-close {
+	width: 36px;
+	height: 36px;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	overflow: hidden;
+	text-indent: 100%;
+	cursor: pointer;
+	pointer-events: none;
+	opacity: 0;
+	-webkit-transform: scale3d(0,0,1);
+	transform: scale3d(0,0,1);
+}
+
+.morphsearch.open .morphsearch-close {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+
+.morphsearch-close::before,
+.morphsearch-close::after {
+	content: '';
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	border-radius: 3px;
+	opacity: 0.2;
+	background: #000;
+}
+
+.morphsearch-close:hover.morphsearch-close::before,
+.morphsearch-close:hover.morphsearch-close::after {
+	opacity: 1;
+}
+
+.morphsearch-close::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.morphsearch-close::after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.morphsearch-content {
+	color: #333;
+	margin-top: 4.5em;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	padding: 0 10.5%;
+	background: #f1f1f1;
+	position: absolute;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.morphsearch.open .morphsearch-content {
+	opacity: 1;
+	height: auto;
+	overflow: visible; /* this breaks the transition of the children in FF: https://bugzilla.mozilla.org/show_bug.cgi?id=625289 */
+	pointer-events: auto;
+	-webkit-transition: opacity 0.3s 0.5s;
+	transition: opacity 0.3s 0.5s;
+}
+
+/* Overlay */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	opacity: 0;
+	pointer-events: none;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch.open ~ .overlay {
+	opacity: 1;
+}
+
+@media screen and (max-width: 53.125em) {
+	.morphsearch-input {
+		padding: 0 25% 0 10px;
 	}
-} */
+	.morphsearch.open .morphsearch-input {
+		font-size: 2em;
+	}
+
+}
+
+.twitter-typeahead {
+	margin: 10px;
+	font-size: 2rem;
+  font-family: 'Raleway' ,sans-serif;
+}
+
+.empty-message h3, .search-result h3 {
+	margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+	.empty-message h3, .search-result h3 {
+		font-size: 4rem;
+	}
+} 
+
 
 /* Subscribe - RSS */
 
@@ -158,7 +407,7 @@
 	font-family: 'Rubik', sans-serif;
 }
 
-button[type=submit] {
+.form-group button[type=submit] {
 	margin: 0;
 	line-height: 0;
 	border-radius: 0;
@@ -171,7 +420,7 @@ button[type=submit] {
 	transition: all 0.3s ease-in-out;
 }
 
-button[type=submit]:hover {
+.form-group button[type=submit]:hover {
 	background: #575fcf;
 	color: white;
 	transition: all 0.3s ease-in-out;

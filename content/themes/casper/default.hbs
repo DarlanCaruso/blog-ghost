@@ -38,8 +38,21 @@
                 </nav>
             </div>
         </footer>
-
     </div>
+
+    <div id="morphsearch" class="morphsearch">
+        <form class="morphsearch-form">
+            <input class="morphsearch-input typeahead" type="search" placeholder="Buscar..." />
+            <button class="morphsearch-submit" type="submit">Pesquisar</button>
+        </form>
+        <div class="morphsearch-content">
+            <!-- Conteúdo aqui  -->
+        </div>
+        <!-- /morphsearch-content -->
+        <span class="morphsearch-close"></span>
+    </div>
+    <!-- /morphsearch -->
+    <div class="overlay"></div>
 
     {{!-- The big email subscribe modal content --}}
     {{#if @labs.subscribers}}
@@ -65,6 +78,53 @@
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     {{!-- Prism.js --}}
     <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
+    <script src="{{asset "js/cassie.js"}}"></script>
+    <script>
+        (function () {
+            var morphSearch = document.getElementById('morphsearch'),
+                input = morphSearch.querySelector('input.morphsearch-input'),
+                ctrlClose = morphSearch.querySelector('span.morphsearch-close'),
+                isOpen = isAnimating = false,
+                // show/hide search area
+                toggleSearch = function (evt) {
+                    // return if open and the input gets focused
+                    if (evt.type.toLowerCase() === 'focus' && isOpen) return false;
+                    if (isOpen) {
+                        classie.remove(morphSearch, 'open');
+                        // trick to hide input text once the search overlay closes 
+                        // todo: hardcoded times, should be done after transition ends
+                        if (input.value !== '') {
+                            setTimeout(function () {
+                                classie.add(morphSearch, 'hideInput');
+                                setTimeout(function () {
+                                    classie.remove(morphSearch, 'hideInput');
+                                    input.value = '';
+                                }, 300);
+                            }, 500);
+                        }
+
+                        input.blur();
+                    }
+                    else {
+                        classie.add(morphSearch, 'open');
+                    }
+                    isOpen = !isOpen;
+                };
+            // events
+            input.addEventListener('focus', toggleSearch);
+            ctrlClose.addEventListener('click', toggleSearch);
+            // esc key closes search overlay
+            // keyboard navigation events
+            document.addEventListener('keydown', function (ev) {
+                var keyCode = ev.keyCode || ev.which;
+                if (keyCode === 27 && isOpen) {
+                    toggleSearch(ev);
+                }
+            });
+            /***** for demo purposes only: don't allow to submit the form *****/
+            morphSearch.querySelector('button[type="submit"]').addEventListener('click', function (ev) { ev.preventDefault(); });
+        })();
+    </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
 
     <script>
@@ -72,7 +132,7 @@
         $(document).ready(function () {
             //Go grab all the posts on the blog, but only the slug and title fields
             //That helps limit the amount of data sent and stored locally
-            $.get(ghost.url.api('posts', { limit: "all", fields: "slug,title" })).done(function (data) {
+            $.get(ghost.url.api('posts', { limit: "all", fields: "slug, title" })).done(function (data) {
                 //add all the data returned to a variable
                 var searchData = data.posts;
 
@@ -84,24 +144,28 @@
                 });
 
                 //Build the typeahead
-                $('#site-search .typeahead').typeahead(null, {
+                $('#morphsearch .typeahead').typeahead(null, {
                     name: 'search',
                     //source is the bloodhound variable
                     source: search,
                     templates: {
                         empty: [
                             '<div class="empty-message">',
-                            'Nenhum artigo encontrado',
+                                '<h3>Nenhum artigo encontrado</h3>',
                             '</div>'
                         ].join('\n'),
                         suggestion: function (data) {
-                            return '<p><strong><a href="' + data.slug + '">' + data.title + '</a></strong></p>';
+                            return `<div class="search-result">
+                                <a href="{{@blog.url}}/${data.slug}" alt="${data.title}">
+                                    <h3>${data.title}</h3>
+                                </a>
+                            </div>`;
                         }
                     }
                 });
 
                 //Now show the search bar since getting data was successful
-                $('#site-search').show();
+                $('#morphsearch').show();
             }).fail(function () {
                 //If the get request errors out, put an error in the console
                 console.log("Error getting Ghost API Data");
