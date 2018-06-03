@@ -1,24 +1,191 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Source+Serif+Pro');
+@import url('https://fonts.googleapis.com/css?family=Rubik|Roboto|Source+Serif+Pro|Raleway');
 
 /* Pagina Incial */
 
-/* Titulo */
+/* Cabeçalho  */
 
-.site-title {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 300;
-	font-size: 4rem;
+.site-header-new {
+	  position: relative;
+    color: #fff;
+    background-size: cover;
 }
 
-/* Subscribe  */
+/* Cabeçalho Esquerdo  */
+
+.site-title {
+	font-family: 'Rubik', sans-serif;
+	font-size: 1.5rem !important;
+	font-weight: 300;
+}
+
+.site-description {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 4rem !important;
+	color: white;
+	opacity: 1 !important;
+}
+
+.header-left {
+		background: #090a0b no-repeat 50%;
+		background-size: cover;
+}
+
+.header-left > * {
+	margin: 0 20px;
+	padding: 40px 0;
+	margin-bottom: 0;
+}
+
+/* Cabeçalho Direito */
+
+.header-right {
+	padding: 10px 20px 40px 20px;
+	background-color: #1e272e;
+}
+
+.header-right h3 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: bold;
+}
+
+.header-right p {
+	margin: 25px 0;
+	font-family: 'Roboto', sans-serif;
+	color: #bdc3c7;
+}
+
+@media (min-width: 900px) {
+	/* Cabeçalho Desktop */
+
+	.site-header {
+		padding: 0;
+	}
+
+	.divider-header {
+		display: flex;
+	}
+
+	.header-left {
+		width: 70%;
+	}
+
+	.header-left > * {
+		margin: 30px;
+	}
+
+	.header-right {
+		width: 30%;
+		padding: 50px;
+	}
+
+	.post-feed {
+		margin-top: 0 !important;
+		padding-top: 40px !important;
+	}
+}
+
+/* Menu  */
+
+.site-nav-logo, .site-nav-center {
+	font-family: 'Rubik', sans-serif;
+	font-size: 1.6rem !important;
+	font-weight: 300;
+	color: #3498db;
+}
+
+.site-nav, .site-nav-center {
+	border-bottom: 2px solid #0fbcf9;
+	height: 60px;
+	background: white;
+}
+
+.site-nav-logo {
+	margin-left: 20px;
+}
+
+.site-nav {
+	top: 0px !important;
+	display: flex;
+}
+
+.site-nav-left {
+	padding: 10px;
+}
+
+.nav {
+	margin: 0;
+}
+
+.nav li a {
+	font-size: 1.3rem;
+	font-family: 'Roboto', sans-serif;
+	text-transform: capitalize;
+	color: #1e272e;
+}
+
+/* @media (min-width: 900px) {
+	.site-nav-right {
+		display: none;
+	}
+} */
+
+/* Subscribe - RSS */
+
+.subscribe-email {
+	font-size: 1.5rem;
+	border-radius: 0;
+  border: 1px solid #3498db;
+}
+
+.form-button {
+	width: 100%;
+  display: flex;
+}
+
+.form-group {
+	display: flex;
+}
 
 .subscribe-button {
   border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 1.5rem;
   border-radius: 0;
   color: #bdc3c7;
 }
+
+.subscribe-form-title {
+	font-family: 'Rubik', sans-serif;
+}
+
+button[type=submit] {
+	margin: 0;
+	line-height: 0;
+	border-radius: 0;
+	padding: 10px;
+	cursor: pointer;
+	background: #3498db;
+	font-family: 'Rubik', sans-serif;
+	font-weight: bold;
+	box-shadow: none;
+	transition: all 0.3s ease-in-out;
+}
+
+button[type=submit]:hover {
+	background: #575fcf;
+	color: white;
+	transition: all 0.3s ease-in-out;
+}
+
+.subscribe-form {
+	font-weight: 100;
+	background: #ecf0f1;
+}
+
+.subscribe-email {
+	padding: 8px;
+}
+
 /* Cards  */
 
 .post-card {
@@ -38,7 +205,7 @@
 }
 
 .post-card-title {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Rubik', sans-serif;
 	font-weight: 600;
 	font-size: 2.4rem;
 }
@@ -53,7 +220,7 @@
 .floating-header,
 .floating-header-logo a,
 .floating-header-title {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Rubik', sans-serif;
 	font-weight: 100;
 	color: #3498db;
 }
@@ -62,8 +229,12 @@
 	color: #7f8c8d;
 }
 
+.floating-header-logo {
+	padding-right: 1px;
+}
+
 .post-full-title {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Rubik', sans-serif;
 	margin-top: 20px;
 }
 
@@ -71,74 +242,10 @@
   font-family: 'Source Serif Pro', serif;
 }
 
-/* Posts Menu  */
-
-li[role="menuitem"] a {
-	color: #bdc3c7;
-	text-transform: capitalize;
-	font-size: 1.1em;
-}
-
-li[role="menuitem"] a:hover {
-	color: #0fbcf9;
-}
-
-.site-header {
-	background-color: #1e272e;
-	border-bottom: 1px solid #0fbcf9;
-}
-
-.site-nav-logo {
-	color: #ecf0f1;
-}
-
-.site-header:after,
-.site-header:before {
-	background: transparent;
-}
-
-.site-nav-logo {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 100;
-}
-
-/* Posts Subscribe */
-
-.subscribe-form-title {
-	font-family: 'Montserrat', sans-serif;
-}
-
-button[type=submit] {
-	margin: 5px;
-	border-radius: 3px;
-	background: none;
-	color: #3498db;
-	font-weight: 100;
-	border: 1px solid #3498db;
-	box-shadow: none;
-	transition: all 0.3s ease-in-out;
-}
-
-button[type=submit]:hover {
-	background: #3498db;
-	color: white;
-	border: 1px solid #3498db;
-	transition: all 0.3s ease-in-out;
-}
-
-.subscribe-form {
-	font-weight: 100;
-	background: #ecf0f1;
-}
-
-.subscribe-email {
-	padding: 8px;
-}
-
 /* Post Author */
 
 .author-card-name {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Rubik', sans-serif;
 }
 
 .author-card-content p {

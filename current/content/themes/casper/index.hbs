@@ -3,23 +3,25 @@
 into the {body} of the default.hbs template --}}
 
 {{!-- The big featured header, it uses blog cover image as a BG if available --}}
-<header class="site-header outer {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
-    <div class="inner">
-        <div class="site-header-content">
-            {{#if profile_image}}
-                <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /> 
-            {{/if}}
-            <h1 class="site-title">
-                {{#if @blog.logo}}
-                    <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
-                {{else}}
-                    {{@blog.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@blog.description}}</h2>
-        </div>
-        {{> "site-nav"}}
-    </div>
+{{> "site-nav"}}
+<header class="site-header-new">
+    {{!-- <div class="inner"> --}}
+        {{!-- <div class="site-header-content"> --}}
+            <div class="divider-header">
+                <div class="header-left  {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
+                    <h3 class="site-title"> >_{{@blog.title}}</h3>
+                    <h1 class="site-description">{{@blog.description}}</h1>
+                </div>
+                <div class="header-right">
+                    {{#if @labs.subscribers}}
+                        <h3>Inscreva-se.</h3>
+                        <p>Receba os novos artigos diretamente no seu e-mail:</p>
+                        {{subscribe_form placeholder="seuemail@email.com"}}
+                    {{/if}}
+                </div>
+            </div>
+        {{!-- </div> --}}
+    {{!-- </div> --}}
 </header>
 
 {{!-- The main content area --}}
