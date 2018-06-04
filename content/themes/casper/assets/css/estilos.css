@@ -471,7 +471,7 @@ input#navbar:checked ~ ul {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		list-style: none;
-		font-size: 45px;
+		font-size: 25px;
 		opacity: 0;
 		visibility: hidden;
 		transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
@@ -479,6 +479,12 @@ input#navbar:checked ~ ul {
 		display: flex;
 		flex-direction: column;
 		text-align: center;
+}
+
+@media (min-width: 650px) {
+	.nav {
+		font-size: 45px;
+	}
 }
 
 .nav li a {
@@ -545,6 +551,38 @@ input#navbar:checked ~ ul {
 .subscribe-email {
 	padding: 8px;
 	font-family: 'Raleway', sans-serif;
+}
+
+/* Subscribe Page  */
+
+.back-button {
+	background: transparent;
+	border: 1px solid #222;
+	color: #222;
+	padding: 5px 10px;
+	border-radius: 2px;
+	font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+}
+
+.subscribe-page {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+.subscribe-page h1 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 300;
+	font-size: 2.4rem;
+}
+
+.subscribe-page p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 1.3rem;
 }
 
 /* Cards  */

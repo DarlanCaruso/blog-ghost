@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{lang}}">
 <head>
-
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,7 +36,7 @@
                     <a href="{{@blog.url}}">{{t "Latest Posts"}}</a>
                     {{#if @blog.facebook}}<a href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
                     {{#if @blog.twitter}}<a href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
-                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Desenvolvido com Ghost</a>
                 </nav>
             </div>
         </footer>
@@ -177,6 +176,8 @@
             });
         });
     </script>
+
+    <script id="dsq-count-scr" src="//darlancaruso.disqus.com/count.js" async></script>
 
     {{#if pagination.pages}}
     <script>

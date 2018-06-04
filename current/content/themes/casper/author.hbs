@@ -1,9 +1,14 @@
 {{!< default}}
-{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- Author page --}}
 
 {{#author}}
-{{!-- Everything inside the #author tags pulls data from the author --}}
+
+{{!-- Navbar --}}
+
 {{> "nav"}}
+
+{{!-- Header --}}
 <header class="site-header outer {{#if cover_image}}" style="background-image: url({{cover_image}}){{else}}no-cover{{/if}}">
     <div class="inner">
         <div class="site-header-content">

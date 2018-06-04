@@ -16,7 +16,7 @@ into the {body} of the default.hbs template --}}
                     {{#if @labs.subscribers}}
                         <h3>Inscreva-se.</h3>
                         <p>Receba os novos artigos diretamente no seu e-mail:</p>
-                        {{subscribe_form placeholder="seuemail@email.com"}}
+                        {{subscribe_form placeholder="seuemail@exemplo.com"}}
                     {{/if}}
                 </div>
             </div>
@@ -30,10 +30,8 @@ into the {body} of the default.hbs template --}}
 
         <div class="post-feed">
             {{#foreach posts}}
-
                 {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
+                    {{> "post-card"}}
             {{/foreach}}
         </div>
 
