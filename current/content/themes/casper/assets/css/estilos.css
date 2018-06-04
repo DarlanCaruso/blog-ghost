@@ -356,7 +356,7 @@ input[type="search"] { /* reset normalize */
 
 .twitter-typeahead .tt-input {
 	margin: 2px;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	font-weight: 100;
 	font-family: 'Rubik', sans-serif;
 }
@@ -555,34 +555,40 @@ input#navbar:checked ~ ul {
 
 /* Subscribe Page  */
 
-.back-button {
-	background: transparent;
-	border: 1px solid #222;
-	color: #222;
-	padding: 5px 10px;
-	border-radius: 2px;
-	font-weight: 300;
-	font-family: 'Roboto', sans-serif;
+.back-button a:hover {
+	text-decoration: none;
+	background: #222;
+	color: white;
+	transition: all 0.3s ease-in-out;
 }
 
 .subscribe-page {
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.subscribe-page > * {
+	min-width: 300px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	text-align: center;
 }
 
-.subscribe-page h1 {
+.subscribe-page .subscribe-title {
 	font-family: 'Rubik', sans-serif;
-	font-weight: 300;
-	font-size: 2.4rem;
 }
 
-.subscribe-page p {
+.subscribe-page .subscribe-message {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
-	font-size: 1.3rem;
+}
+
+.subscribe-page .subscribe-form {
+	background: transparent;
+	margin: 0;
 }
 
 /* Cards  */

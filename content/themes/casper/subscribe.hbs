@@ -1,26 +1,27 @@
 {{!< default}}
 
-{{#if success}}
-  <button class="back-button" href="../">Voltar</button>
+{{> "nav"}}
 
+{{#if success}}
   <section class="subscribe-page">
-    <header>
-      <h1>Sucesso!</h1>
-    </header>
-    
-    <p>
-      Você seu inscreveu com sucesso em
-      <em>{{@blog.title}}</em> com o e-mail
-      <em>{{email}}</em>.
-    </p>
+    <div class="subscribe-info">
+      <header>
+        <h1 class="subscribe-title">Sucesso!</h1>
+      </header>
+
+      <p class="subscribe-message">
+        Você seu inscreveu com sucesso em
+        <strong>{{@blog.title}}</strong> com o e-mail
+        <strong>{{strongail}}</strong>.
+      </p>
+
+      <a href="{{@blog.url}}" alt="{{@blog.title}}">Voltar para a página principal</a>
+    </div>
   </section>
 {{else}}
   <section class="subscribe-page">
-    <header>
-      <h1>Inscreva-se.</h1>
-    </header>
-  
     <section class="subscribe-form">
+      <h3 class="subscribe-form-title">Inscreva-se.</h3>
       <p>{{t "Get the latest posts delivered right to your inbox"}}</p>
       {{subscribe_form placeholder="seuemail@exemplo.com"}}
     </section>
